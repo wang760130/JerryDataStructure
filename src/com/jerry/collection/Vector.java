@@ -3,6 +3,7 @@ package com.jerry.collection;
 import java.util.AbstractList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -465,10 +466,9 @@ public class Vector<E> extends AbstractList<E> implements List<E>,
 	}
 
 	// 获取Vector中fromIndex(包括)到toIndex(不包括)的子集
-//	public synchronized List<E> subList(int fromIndex, int toIndex) {
-//		return Collections.synchronizedList(super.subList(fromIndex, toIndex),
-//				this);
-//	}
+	public synchronized List<E> subList(int fromIndex, int toIndex) {
+		return Collections.synchronizedList(super.subList(fromIndex, toIndex));
+	}
 
 	// 删除Vector中fromIndex到toIndex的元素
 	protected synchronized void removeRange(int fromIndex, int toIndex) {
