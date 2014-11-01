@@ -1,13 +1,12 @@
-package com.jerry.list.impl;
+package com.jerry.list;
 
-import com.jerry.list.List;
 
 /**
  * 单向链表
  * @author Jerry Wang
  *
  */
-class SingleLinkedList<T> implements List<T>{
+class SingleLinkedList<T> {
 	
 	private static class Node<T> {
 		private T key;
@@ -26,28 +25,23 @@ class SingleLinkedList<T> implements List<T>{
 		head = null;
 	}
 	
-	@Override
 	public int size() {
 		return size;
 	}
 	
-	@Override
 	public boolean isEmpty() {
 		return size == 0 ? true : false;
 	}
 	
-	@Override
 	public void insert(T key) {
 		head = new Node<T>(key,head);
 		size++;
 	}
 	
-	@Override
 	public T front() {
 		return head.key;
 	}
 	
-	@Override
 	public T get(int index) {
 		if(index > size || index < 0) {
 			return null;
@@ -60,7 +54,6 @@ class SingleLinkedList<T> implements List<T>{
 		return pre.key;
 	}
 	
-	@Override
 	public T delete() {
 		T node = head.key;
 		head = head.next;
@@ -68,7 +61,6 @@ class SingleLinkedList<T> implements List<T>{
 		return node;
 	}
 	
-	@Override
 	public void delete (T key) {
 		Node<T> node  = this.searchNode(key);
 		if(null == node) {
@@ -94,7 +86,6 @@ class SingleLinkedList<T> implements List<T>{
 		return pre;
 	}
 	
-	@Override
 	public int searchIndex(T t) {
 		Node<T> pre = head;
 		int i = 0;
