@@ -6,7 +6,7 @@ package com.jerry.list;
  * @author Jerry Wang
  *
  */
-class SingleLinkedList<T> {
+public class SingleLinkedList<T> implements List<T>{
 	
 	private static class Node<T> {
 		private T key;
@@ -25,71 +25,17 @@ class SingleLinkedList<T> {
 		head = null;
 	}
 	
-	public int size() {
-		return size;
-	}
-	
-	public boolean isEmpty() {
-		return size == 0 ? true : false;
-	}
-	
-	public void insert(T key) {
-		head = new Node<T>(key,head);
-		size++;
-	}
-	
-	public T front() {
-		return head.key;
-	}
-	
-	public T get(int index) {
-		if(index > size || index < 0) {
-			return null;
-		}
-		int i = 0;
+	private Node<T> searchNode(T key) {
 		Node<T> pre = head;
-		while(i++ < index) {
+		while (pre != null && pre.key != key)
 			pre = pre.next;
-		}
-		return pre.key;
-	}
-	
-	public T delete() {
-		T node = head.key;
-		head = head.next;
-		size--;
-		return node;
-	}
-	
-	public void delete (T key) {
-		Node<T> node  = this.searchNode(key);
-		if(null == node) {
-			return;
-		}
-		if(size == 1) {
-			head = null;
-		} else {
-			Node<T> pre = head;
-			while(pre.next != null && pre.next != node) {
-				pre = pre.next;
-				pre.next = node.next;
-			}
-		}
-		size --;
-	}
-	
-	public Node<T> searchNode(T key) {
-		Node<T> pre = head;
-		while (pre != null && pre.key != key) {
-			pre = pre.next;
-		}
 		return pre;
 	}
 	
-	public int searchIndex(T t) {
+	private int searchIndex(T key) {
 		Node<T> pre = head;
 		int i = 0;
-		while(pre != null && pre.key != t) {
+		while(pre != null && pre.key != key) {
 			i++;
 			pre = pre.next;
 		}
@@ -99,7 +45,7 @@ class SingleLinkedList<T> {
 			return -1;
 	} 
 	
-	public Node<T> getNode(int index) {
+	private Node<T> getNode(int index) {
 		if(index < 0 && index >= size) 
 			return null;
 		int i = 0;
@@ -109,45 +55,166 @@ class SingleLinkedList<T> {
 		return pre;
 	}
 	
+	private T front() {
+		return head.key;
+	}
+	
+	@Override
+	public int size() {
+		return size;
+	}
+
+	@Override
+	public boolean isEmpty() {
+		return size == 0 ? true : false;
+	}
+
+	@Override
+	public boolean contains(T e) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public Object[] toArray() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public T[] toArray(T[] e) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean add(T e) {
+		head = new Node<T>(e,head);
+		size++;
+		return true;
+	}
+
+	@Override
+	public boolean remove(T e) {
+		Node<T> node  = this.searchNode(e);
+		if(null == node) 
+			return false;
+		if(size == 1)
+			head = null;
+		else {
+			Node<T> pre = head;
+			while(pre.next != null && pre.next != node) {
+				pre = pre.next;
+				pre.next = node.next;
+			}
+		}
+		size --;
+		return true;
+	}
+
+	@Override
+	public boolean containsAll(List<T> list) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean addAll(List<T> list) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean addAll(int index, List<T> list) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean removeAll(List<T> list) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean retainAll(List<T> list) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void clear() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public T get(int index) {
+		if(index > size || index < 0)
+			return null;
+		int i = size - 1;
+		Node<T> pre = head;
+		while(i-- > index) 
+			pre = pre.next;
+		return pre.key;	
+	}
+
+	@Override
+	public T set(int index, T e) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void add(int index, T e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public T remove(int index) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int indexOf(T e) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int lastIndexOf(T e) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public List<T> subList(int fromIndex, int toIndex) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void display() {
+		for(int i = 0; i < size; i++) {
+			System.out.print(this.get(i));
+			if(i != size - 1)
+				System.out.print("->");
+		}
+		System.out.println();
+	}
+
 	/**
 	 * 求链表逆序
-	 * 方法一：
-	 * 是把前面的元素从后向前一次放在链表结尾  
-     * 还要查找元素节点，查找过程为n所以时间复杂度已经为 ：n的平方 了 
+	 * 从后面像最前面插入，插入排序的思想 
 	 */
+	@Override
 	public void reverse() {
 		if(size <= 1)
 			return ;
-		int i = size - 2;
-		Node<T> tail = this.getNode(i);
-		while(i >= 0) {
-			Node<T> e = this.getNode(i);
-			if(e != head) {
-				Node<T> pre = this.getNode(i - 1);
-				tail.next = e;
-				pre.next = e;
-				tail = e;
-				tail.next = null;
-			} else {
-				tail.next = head;
-				tail = head;
-				head = head.next;
-				tail.next = null;
-			}
-			i++;
-		}
-	}
-	
-	/**
-	 * 求链表逆序
-	 * 方法二:
-	 *  从后面像最前面插入，插入排序的思想 
-	 */
-	public void reverse2() {
-		if(size <= 1)
-			return ;
 		int i = 1;
-		Node<T> pre, insertNode,next;
+		Node<T> pre, insertNode, next;
 		pre = head;
 		//每个要插入元素的头结点都是最初的头结点  
 		next = head.next;
@@ -160,4 +227,5 @@ class SingleLinkedList<T> {
 			head = insertNode;
 		}
 	}
+
 }
