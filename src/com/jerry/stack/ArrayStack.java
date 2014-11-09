@@ -43,5 +43,11 @@ public class ArrayStack<T> implements Stack<T>{
 		return 0;
 	}
 
+	@Override
+	public int clear() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 	
 }

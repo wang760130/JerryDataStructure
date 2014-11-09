@@ -5,11 +5,13 @@ package com.jerry.list;
  * @author Jerry Wang
  *
  */
-public class ArrayList implements List{
-
+public class ArrayList<T> implements List<T>{
+	private static final int DEFAUT_SIZE = 10;
+	private T[] data = null;
+	private int size = 0;
+	
 	@Override
 	public int size() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
@@ -20,7 +22,7 @@ public class ArrayList implements List{
 	}
 
 	@Override
-	public boolean contains(Object e) {
+	public boolean contains(T e) {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -32,49 +34,49 @@ public class ArrayList implements List{
 	}
 
 	@Override
-	public Object[] toArray(Object[] e) {
+	public T[] toArray(T[] e) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public boolean add(Object e) {
+	public boolean add(T e) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean remove(Object e) {
+	public boolean remove(T e) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean containsAll(List list) {
+	public boolean containsAll(List<T> list) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean addAll(List list) {
+	public boolean addAll(List<T> list) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean addAll(int index, List list) {
+	public boolean addAll(int index, List<T> list) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean removeAll(List list) {
+	public boolean removeAll(List<T> list) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean retainAll(List list) {
+	public boolean retainAll(List<T> list) {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -86,43 +88,43 @@ public class ArrayList implements List{
 	}
 
 	@Override
-	public Object get(int index) {
+	public T get(int index) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Object set(int index, Object e) {
+	public T set(int index, T e) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void add(int index, Object e) {
+	public void add(int index, T e) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public Object remove(int index) {
+	public T remove(int index) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public int indexOf(Object e) {
+	public int indexOf(T e) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public int lastIndexOf(Object e) {
+	public int lastIndexOf(T e) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public List subList(int fromIndex, int toIndex) {
+	public List<T> subList(int fromIndex, int toIndex) {
 		// TODO Auto-generated method stub
 		return null;
 	}

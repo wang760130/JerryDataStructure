@@ -18,4 +18,6 @@ public interface Stack<T> {
 	int search(Object o);
 	
 	int size();
+	
+	int clear();
 }
