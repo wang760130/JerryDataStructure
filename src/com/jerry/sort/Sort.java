@@ -13,4 +13,14 @@ public abstract class Sort {
 		 data[i] = data[j];
 		 data[j] = temp;
 	 }
+	 
+	 public static void display(int[] data) {
+		 for(int i = 0; i < data.length; i++) {
+			 System.out.print(data[i]);
+			 if(i != data.length - 1) {
+				 System.out.print("->");
+			 }
+		 }
+		 System.out.println();
+	 }
 }
