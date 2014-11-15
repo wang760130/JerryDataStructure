@@ -39,6 +39,25 @@ public class StringUtil {
 		return 0;
 	}
 	
+	public static int index(String str, String subStr) {
+		int i = 0;
+		int j = 0;
+		while(i <= str.length() && j <= subStr.length()) {
+			if(str.split("")[i].equals(subStr.split("")[j])) {
+//			if(str.charAt(i) == subStr.charAt(j)) {
+				++i;
+				++j;
+			} else {
+				i = i - j + 2;
+				j = 1;
+			}
+		}
+		if(j > subStr.length())
+			return i - subStr.length();
+		else
+			return 0;
+	}
+	
 	public static String repacle(String str, int index, char ch) {
 		return null;
 	}
