@@ -10,7 +10,7 @@ public class LinkedList<T> implements List<T>{
 	
 	private static class Node<T> {
 		private T key;
-		Node<T> next;
+		private Node<T> next;
 		public Node(T key, Node<T> next) {
 			this.key = key;
 			this.next = next;
