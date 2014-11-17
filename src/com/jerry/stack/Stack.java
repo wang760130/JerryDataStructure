@@ -7,17 +7,15 @@ package com.jerry.stack;
  * 
  */
 public interface Stack<T> {
-	T push(T item);
+	public void push(T item);
 
-	T pop();
+	public T pop();
 
-	T top();
+	public T top();
 
-	boolean isEmpty();
+	public boolean isEmpty();
 
-	int search(Object o);
+	public int size();
 	
-	int size();
-	
-	int clear();
+	public void clear();
 }
