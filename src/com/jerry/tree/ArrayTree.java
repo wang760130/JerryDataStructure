@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class ArrayTree<T> implements Tree<T> {
 	
-	private static final int DEFAULT_SIZE = 2;
+	private final int DEFAULT_SIZE = 2;
 	private int size = 0;
 	private int count = 0;
 	private Object[] nodes = null;
