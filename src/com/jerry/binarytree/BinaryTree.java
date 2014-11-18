@@ -10,6 +10,8 @@ public interface BinaryTree<T> {
 	 
 	 public boolean empty();
 	 
+	 public T getRoot();
+	 
 	 public T getParent(int index);
 	 
 	 public T getLeft(int index);
