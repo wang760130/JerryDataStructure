@@ -8,7 +8,7 @@ package com.jerry.binarytree;
 public interface BinaryTree<T> {
 	 public void add(int index, T data, boolean left);
 	 
-	 public boolean empty();
+	 public boolean isEmpty();
 	 
 	 public T getRoot();
 	 
