@@ -69,14 +69,14 @@ public class ArrayBinaryTree<T> implements BinaryTree<T>{
 	}
 
 	@Override
-	public boolean empty() {
+	public boolean isEmpty() {
 		return this.datas[0] == null;
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public T getRoot() {
-		 if(this.empty()) {
+		 if(this.isEmpty()) {
 			 return (T)this.datas[0];
 		 }
 		 return null;
