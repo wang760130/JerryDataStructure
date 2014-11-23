@@ -1,24 +1,40 @@
 package com.jerry.list;
 
+import java.util.Arrays;
+
 /**
  * 使用数组实现链表
  * @author Jerry Wang
  *
  */
 public class ArrayList<T> implements List<T>{
-	private static final int DEFAUT_SIZE = 10;
-	private T[] data = null;
+	private final static int DEFAUT_SIZE = 10;
+	private Object[] data = null;
 	private int size = 0;
+	private int capacity = 0;
+	
+	public ArrayList(int initialCapacity) {
+		super();
+		if (initialCapacity < 0)
+			throw new IllegalArgumentException("Illegal Capacity: "
+					+ initialCapacity);
+		this.capacity = initialCapacity;
+		this.data = new Object[initialCapacity];
+	}
+	
+	public ArrayList() {
+		this(DEFAUT_SIZE);
+		this.capacity = DEFAUT_SIZE;
+	}
 	
 	@Override
 	public int size() {
-		return 0;
+		return size;
 	}
 
 	@Override
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		return false;
+		return size == 0;
 	}
 
 	@Override
@@ -41,8 +57,16 @@ public class ArrayList<T> implements List<T>{
 
 	@Override
 	public boolean add(T e) {
-		// TODO Auto-generated method stub
-		return false;
+		if(this.size > this.capacity) {
+			this.enlarge();
+		}
+		this.data[this.size++] = e;
+		return true;
+	}
+
+	private void enlarge() {
+		this.capacity = (this.capacity * 3) / 2 + 1;
+		this.data = Arrays.copyOf(this.data, this.capacity);
 	}
 
 	@Override
@@ -131,14 +155,17 @@ public class ArrayList<T> implements List<T>{
 
 	@Override
 	public void display() {
-		// TODO Auto-generated method stub
-		
+		for(int i = 0; i < this.size; i++) {
+			System.out.print(this.data[i]);
+			if(i < this.size) 
+				System.out.print("->");
+		}
+		System.out.println();
 	}
 
 	@Override
 	public void reverse() {
 		// TODO Auto-generated method stub
-		
 	}
 
 }

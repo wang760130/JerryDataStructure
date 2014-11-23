@@ -5,7 +5,7 @@ import org.junit.Test;
 import com.jerry.list.LinkedList;
 import com.jerry.list.utils.LinkedListUtil;
 
-public class SingleLinkedListUtilTest {
+public class LinkedListUtilTest {
 	
 	@Test
 	public void mergeListTest() {
