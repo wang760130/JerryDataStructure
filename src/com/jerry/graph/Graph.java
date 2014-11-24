@@ -24,7 +24,7 @@ public class Graph<T> {
 		if(visited.contains(current))
 			return ;
 		visited.add(current);
-		System.out.println("这个遍历的是：" + current.getValue());
+		System.out.println(current.getValue() + "->");
 		for(int i = 0; i < current.getOutgoing().size(); i++) {
 			// 访问本点的结束点
 			this.deptFirstSearch(current.getOutgoing().get(i).getEnd(), visited);
@@ -46,9 +46,9 @@ public class Graph<T> {
 		
 		while(!queue.isEmpty()) {
 			Node<T> current = queue.poll();
-			if(!visited.add(current)) {
+			if(!visited.contains(current)) {
 				visited.add(current);
-				System.out.println("查找的节点是：" + current.getValue());
+				System.out.print(current.getValue() + "->");
 				for(int i = 0; i < current.getOutgoing().size(); i++) {
 					// 把它的下一层，加入到队列中
 					queue.offer(current.getOutgoing().get(i).getEnd());
