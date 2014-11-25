@@ -1,8 +1,5 @@
 package com.jerry.graph;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.junit.Before;
 import org.junit.Test;
 
@@ -55,19 +52,18 @@ public class GraphTest {
 	 * 广度遍历
 	 */
 	@Test
-	public void testWidthSearch() {
+	public void testDreadthFirstSearch() {
 		System.out.println("广度遍历如下：");
-		graph.widthSearch(a);
+		graph.dreadthFirstSearch(a);
 	}
 	
 	/**
 	 * 深度遍历
 	 */
 	@Test
-	public void testDeptFisrtSearch() {
+	public void testDepthFirstSearch() {
 		System.out.println("深度遍历如下：");
-		List<Node<String>> visited = new ArrayList<Node<String>>();
-		graph.deptFirstSearch(a, visited);
+		graph.depthFirstSearch(a);
 	}
 	
 }
