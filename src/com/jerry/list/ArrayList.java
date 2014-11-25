@@ -16,8 +16,7 @@ public class ArrayList<T> implements List<T>{
 	public ArrayList(int initialCapacity) {
 		super();
 		if (initialCapacity < 0)
-			throw new IllegalArgumentException("Illegal Capacity: "
-					+ initialCapacity);
+			throw new IllegalArgumentException("Illegal Capacity: "+ initialCapacity);
 		this.capacity = initialCapacity;
 		this.data = new Object[initialCapacity];
 	}
@@ -31,7 +30,7 @@ public class ArrayList<T> implements List<T>{
 	public int size() {
 		return size;
 	}
-
+	
 	@Override
 	public boolean isEmpty() {
 		return size == 0;
@@ -57,7 +56,7 @@ public class ArrayList<T> implements List<T>{
 
 	@Override
 	public boolean add(T e) {
-		if(this.size > this.capacity) {
+		if(this.size >= this.capacity) {
 			this.enlarge();
 		}
 		this.data[this.size++] = e;
@@ -157,7 +156,7 @@ public class ArrayList<T> implements List<T>{
 	public void display() {
 		for(int i = 0; i < this.size; i++) {
 			System.out.print(this.data[i]);
-			if(i < this.size) 
+			if(i != this.size - 1) 
 				System.out.print("->");
 		}
 		System.out.println();
