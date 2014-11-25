@@ -1,5 +1,6 @@
 package com.jerry.graph;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
@@ -19,16 +20,21 @@ public class Graph<T> {
 	 * @param current
 	 * @param visited
 	 */
-	public void deptFirstSearch(Node<T> current, List<Node<T>> visited) {
+	public void depthFirstSearch(Node<T> current, List<Node<T>> visited) {
 		// 被访问过了，就不访问，防止死循环
 		if(visited.contains(current))
 			return ;
 		visited.add(current);
-		System.out.println(current.getValue() + "->");
+		System.out.print(current.getValue() + "->");
 		for(int i = 0; i < current.getOutgoing().size(); i++) {
 			// 访问本点的结束点
-			this.deptFirstSearch(current.getOutgoing().get(i).getEnd(), visited);
+			this.depthFirstSearch(current.getOutgoing().get(i).getEnd(), visited);
 		}
+	}
+	
+	public void depthFirstSearch(Node<T> current) {
+		List<Node<T>> visited = new ArrayList<Node<T>>();
+		this.depthFirstSearch(current, visited);
 	}
 	
 	/**
@@ -36,7 +42,7 @@ public class Graph<T> {
 	 * 这个方法的方式：按层次对图进行访问，先第一层，再第二层，依次类推
 	 * @param start
 	 */
-	public void widthSearch(Node<T> start) {
+	public void dreadthFirstSearch(Node<T> start) {
 		// 记录所有访问过的元素
 		Set<Node<T>> visited = new HashSet<Node<T>>();
 		// 用队列存放所有依次要访问元素
