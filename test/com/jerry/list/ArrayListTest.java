@@ -15,28 +15,32 @@ public class ArrayListTest {
 	@Before
 	public void init() {
 		list = new ArrayList<String>(2);
-		
+	}
+	
+	@Test
+	public void testAdd() {
 		list.add("a");
 		list.add("b");
 		list.add("c");
 		list.add("d");
 		list.add("e");
-//		list.add("f");
-//		list.add("g");
-//		list.add("h");
-//		list.add("i");
-//		list.add("j");
-//		list.add("k");
-//		list.add("l");
-//		list.add("m");
-//		list.add("n");
-//		list.add("o");
-//		list.add("p");
-//		list.add("q");
+		list.add("f");
+		list.add("g");
+		list.add("h");
+		list.add("i");
+		list.add("j");
+		list.add("k");
+		list.add("l");
+		list.add("m");
+		list.add("n");
+		list.add("o");
+		list.add("p");
+		list.add("q");
 	}
 	
 	@Test
 	public void testDisplay() {
+		this.testAdd();
 		list.display();
 	}
 	
