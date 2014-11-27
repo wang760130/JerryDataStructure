@@ -38,14 +38,12 @@ public class ArrayList<T> implements List<T>{
 
 	@Override
 	public boolean contains(T e) {
-		// TODO Auto-generated method stub
-		return false;
+		return this.indexOf(e) >= 0;
 	}
 
 	@Override
 	public Object[] toArray() {
-		// TODO Auto-generated method stub
-		return null;
+		return Arrays.copyOf(this.data, size);
 	}
 
 	@Override
@@ -136,8 +134,16 @@ public class ArrayList<T> implements List<T>{
 
 	@Override
 	public int indexOf(T e) {
-		// TODO Auto-generated method stub
-		return 0;
+		if (e == null) {
+			for (int i = 0; i < size; i++)
+				if (this.data[i] == null)
+					return i;
+		} else {
+			for (int i = 0; i < size; i++)
+				if (e.equals(this.data[i]))
+					return i;
+		}
+		return -1;
 	}
 
 	@Override
@@ -166,5 +172,10 @@ public class ArrayList<T> implements List<T>{
 	public void reverse() {
 		// TODO Auto-generated method stub
 	}
-
+	
+	private void RangeCheck(int index) {
+		if (index >= size)
+			throw new IndexOutOfBoundsException("Index: " + index + ", Size: "
+					+ size);
+	}
 }
