@@ -49,4 +49,11 @@ public class ArrayListTest {
 		System.out.println(list.size());
 	}
 	
+	@Test
+	public void testIsEmpty() {
+		System.out.println(list.isEmpty());
+		this.testAdd();
+		System.out.println(list.isEmpty());
+	}
+	
 }
