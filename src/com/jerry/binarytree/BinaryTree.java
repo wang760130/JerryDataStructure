@@ -23,4 +23,11 @@ public interface BinaryTree<T> {
 	 public int position(T data);
 	 
 	 public String toString();
+	 
+	 public void preOrder();
+	 
+	 public void inOrder();
+	 
+	 public void postOrder();
+	 
 }
