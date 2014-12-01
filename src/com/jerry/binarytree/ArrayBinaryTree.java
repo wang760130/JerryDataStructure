@@ -129,5 +129,23 @@ public class ArrayBinaryTree<T> implements BinaryTree<T>{
 	public String toString() {
 		return java.util.Arrays.toString(this.datas);
 	}
+
+	@Override
+	public void preOrder() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void inOrder() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void postOrder() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }
