@@ -86,4 +86,22 @@ public class LinkedBinaryTree<T> implements BinaryTree<T>{
 		return 0;
 	}
 
+	@Override
+	public void preOrder() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void inOrder() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void postOrder() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
