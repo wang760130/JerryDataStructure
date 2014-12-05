@@ -133,7 +133,7 @@ public class BinTree<T> {
 		if(leftLevel < 0 && rightLevel < 0)
 			return -1;
 		level = leftLevel < rightLevel ? rightLevel : leftLevel;
-		return 1 + leftLevel;
+		return 1 + level;
 		
 	}
 	
